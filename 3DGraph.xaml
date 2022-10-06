@@ -1,0 +1,52 @@
+﻿<Window x:Class="MHTO2._3DGraph"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MHTO2"
+        mc:Ignorable="d"
+         Title="3DGraph" Height="614.141" Width="815.785" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseWheel="Grid_MouseWheel" MouseDown="Window_MouseDown" MouseUp="Window_MouseUp" MouseMove="Window_MouseMove">
+    <Grid Margin="0,0,3.6,-0.2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MinWidth="68.8"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MinWidth="49.6"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.ColumnSpan="4" Height="219" Margin="631,106,-1.6,138.2">
+
+            <Button x:Name="buttonExportImage" Click="buttonExportImage_Click" Content="Экспорт в PNG" Margin="0,0,0.7,0" Height="26"/>
+            <Rectangle Width="20" Height="66" Margin="78,0,78.8,0">
+                <Rectangle.LayoutTransform>
+                    <RotateTransform CenterX="0" CenterY="0" Angle="180"/>
+                </Rectangle.LayoutTransform>
+            </Rectangle>
+        </StackPanel>
+        <Viewport3D Name="Viewport" Grid.RowSpan="5" Margin="0,0,13.6,-0.2">
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="camera" NearPlaneDistance="0" UpDirection="0,1,0" LookDirection="0,0,-50" Position="0,10,50" FieldOfView="50"/>
+            </Viewport3D.Camera>
+            <ModelVisual3D x:Name="model">
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="group">
+                        <AmbientLight Color="DarkGray"/>
+                        <DirectionalLight Color="White" Direction="-5,-5,-7"/>
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
+        <Label Content="Концентрация В,&#xD;&#xA;моль/л" Margin="57,128,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="111" Grid.ColumnSpan="3" Height="40"/>
+        <Label Content="Координата по &#xD;&#xA;длине, м&#xA;" HorizontalAlignment="Left" Margin="57.6,194,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.ColumnSpan="3" Height="64"/>
+        <Label Content="Время t, мин" HorizontalAlignment="Left" Margin="57.6,165,0,0" VerticalAlignment="Top" Width="87" Grid.Column="1" Grid.ColumnSpan="3" Height="26"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="6" Margin="6,175,0,0" VerticalAlignment="Top" Width="46" Grid.Column="1" Background="Red"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="6" Margin="6.2,205,0,0" VerticalAlignment="Top" Width="46" Grid.Column="1" Background="LightGreen"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="6" Margin="6.4,140,0,0" VerticalAlignment="Top" Width="46" Grid.Column="1" Background="Yellow"/>
+    </Grid>
+</Window>
